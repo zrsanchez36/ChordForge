@@ -1,6 +1,7 @@
 "use client";
 
 import { startTransition, useCallback, useEffect, useRef, useState } from "react";
+import GuitarFretboard from "@/components/guitar-fretboard";
 import MiniKeyboard from "@/components/mini-keyboard";
 import ParticleBackdrop from "@/components/particle-backdrop";
 import {
@@ -151,6 +152,7 @@ export default function ChordForgeStudio({
   });
   const [visibleCards, setVisibleCards] = useState([]);
   const [focusedChordIndex, setFocusedChordIndex] = useState(0);
+  const [instrumentView, setInstrumentView] = useState("piano");
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState("");
 
@@ -480,7 +482,35 @@ export default function ChordForgeStudio({
                       {inspectedChord.beats === 1 ? "beat" : "beats"}
                     </p>
                   </div>
-                  <MiniKeyboard notes={inspectedChord.notes} />
+                  <div className="instrument-toggle" role="tablist" aria-label="Instrument view">
+                    {[
+                      { id: "piano", label: "Piano" },
+                      { id: "guitar", label: "Guitar" },
+                    ].map((view) => (
+                      <button
+                        key={view.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={instrumentView === view.id}
+                        className={`instrument-toggle__button ${
+                          instrumentView === view.id ? "is-active" : ""
+                        }`}
+                        onClick={() => setInstrumentView(view.id)}
+                      >
+                        {view.label}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="instrument-hint">
+                    {instrumentView === "piano"
+                      ? "Keyboard voicing map for the selected chord."
+                      : "First-position fretboard map using the chord's spelled notes."}
+                  </p>
+                  {instrumentView === "piano" ? (
+                    <MiniKeyboard notes={inspectedChord.notes} />
+                  ) : (
+                    <GuitarFretboard notes={inspectedChord.notes} />
+                  )}
                 </>
               ) : (
                 <p className="support-copy">
