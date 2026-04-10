@@ -688,6 +688,173 @@ code {
   padding: 14px 12px 12px;
 }
 
+.guitar-shape-list {
+  display: grid;
+  gap: 12px;
+}
+
+.guitar-shape-card {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(255, 255, 255, 0.012));
+  padding: 14px;
+}
+
+.guitar-shape-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guitar-shape-card__header strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.96rem;
+  letter-spacing: -0.03em;
+}
+
+.guitar-shape-card__header code {
+  border-radius: 999px;
+  padding: 7px 9px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.guitar-shape-card__eyebrow {
+  margin: 0;
+  color: rgba(var(--accent-rgb), 0.88);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.guitar-shape-diagram {
+  margin-top: 14px;
+}
+
+.guitar-shape-diagram__top,
+.guitar-shape-diagram__row {
+  display: grid;
+  grid-template-columns: 34px repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.guitar-shape-diagram__top {
+  align-items: end;
+  margin-bottom: 8px;
+}
+
+.guitar-shape-diagram__corner {
+  display: block;
+}
+
+.guitar-shape-diagram__string-top {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+}
+
+.guitar-shape-diagram__string-label,
+.guitar-shape-diagram__string-state,
+.guitar-shape-diagram__fret-number {
+  color: var(--soft);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.guitar-shape-diagram__string-state {
+  min-height: 1em;
+  text-transform: uppercase;
+}
+
+.guitar-shape-diagram__grid {
+  display: grid;
+  gap: 6px;
+}
+
+.guitar-shape-diagram__row {
+  align-items: center;
+}
+
+.guitar-shape-diagram__fret-number {
+  text-align: center;
+}
+
+.guitar-shape-diagram__cell {
+  position: relative;
+  display: grid;
+  min-height: 36px;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.008));
+}
+
+.guitar-shape-diagram__cell.has-start-fret {
+  border-top-color: rgba(var(--accent-rgb), 0.2);
+}
+
+.guitar-shape-diagram__cell.is-active {
+  border-color: rgba(var(--accent-rgb), 0.28);
+  background:
+    linear-gradient(180deg, rgba(var(--accent-rgb), 0.18), rgba(var(--accent-rgb), 0.08));
+}
+
+.guitar-shape-diagram__cell.is-root {
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.2);
+}
+
+.guitar-shape-diagram__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 25px;
+  min-height: 25px;
+  border-radius: 999px;
+  padding: 0 7px;
+  background: rgba(var(--accent-rgb), 0.28);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.guitar-shape-card__copy {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.guitar-shape-card__notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.guitar-shape-card__note {
+  border-radius: 999px;
+  padding: 5px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.guitar-fretboard__fallback-copy {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
 .guitar-fretboard__header,
 .guitar-fretboard__row {
   display: grid;
@@ -900,6 +1067,16 @@ code {
 
   .genre-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guitar-shape-diagram__top,
+  .guitar-shape-diagram__row {
+    grid-template-columns: 28px repeat(6, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .guitar-shape-card__header {
+    flex-direction: column;
   }
 }
 

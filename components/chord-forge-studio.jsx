@@ -504,12 +504,12 @@ export default function ChordForgeStudio({
                   <p className="instrument-hint">
                     {instrumentView === "piano"
                       ? "Keyboard voicing map for the selected chord."
-                      : "First-position fretboard map using the chord's spelled notes."}
+                      : "Playable guitar voicings generated from the chord's actual tones."}
                   </p>
                   {instrumentView === "piano" ? (
                     <MiniKeyboard notes={inspectedChord.notes} />
                   ) : (
-                    <GuitarFretboard notes={inspectedChord.notes} />
+                    <GuitarFretboard chord={inspectedChord} />
                   )}
                 </>
               ) : (

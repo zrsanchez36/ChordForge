@@ -15,7 +15,17 @@ const monoFont = IBM_Plex_Mono({
 export const metadata = {
   title: "ChordForge",
   description:
-    "Mood-shaped chord generation with Anthropic, browser playback, and saved session recall.",
+    "ChordForge turns genre and mood into playable chord progressions with AI generation, live browser playback, session recall, and instrument-friendly voicing previews.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "ChordForge",
+  },
+};
+
+export const viewport = {
+  themeColor: "#eb7c33",
 };
 
 export default function RootLayout({ children }) {

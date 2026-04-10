@@ -10,8 +10,9 @@ ChordForge is a Next.js App Router app that turns mood controls into playable ch
 - Persistent production rate limiting backed by Upstash Redis
 - Structured JSON prompting and normalization of model output
 - Browser playback for generated chords
-- Piano and guitar instrument maps for the selected chord
+- Piano preview and playable guitar chord-shape suggestions for the selected chord
 - Local session history with versioned `localStorage` persistence
+- Browser/app icons plus a web app manifest for install-ready branding
 - A built-in preview progression so the UI can be explored before the API key is configured
 
 ## Getting started
