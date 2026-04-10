@@ -13,6 +13,7 @@ ChordForge is a Next.js App Router app that turns mood controls into playable ch
 - Piano preview and playable guitar chord-shape suggestions for the selected chord
 - Local session history with versioned `localStorage` persistence
 - Browser/app icons plus a web app manifest for install-ready branding
+- Native desktop icon outputs for macOS (`.icns`) and Windows/browser (`.ico`)
 - A built-in preview progression so the UI can be explored before the API key is configured
 
 ## Getting started
@@ -49,6 +50,16 @@ npm run dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000).
+
+## Icon assets
+
+- Source artwork lives in `assets/icons/chordforge-app-icon.svg`
+- Generated native icons are written to `assets/native-icons/`
+- Run `npm run icons:generate` to regenerate:
+  - `assets/native-icons/ChordForge.icns`
+  - `assets/native-icons/ChordForge.ico`
+  - `assets/native-icons/ChordForge.png`
+  - `app/favicon.ico`
 
 ## Notes
 
